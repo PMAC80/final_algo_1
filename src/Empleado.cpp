@@ -1,13 +1,25 @@
-#include "Empleado.hpp"
+#ifndef EMPLEADO_HPP
+#define EMPLEADO_HPP
 
+#include <iostream>
+#include <string>
+using namespace std;
 
-Empleado::Empleado(string nombre, float salario) : nombre(nombre), salario(salario) {}
+class Empleado 
+{
+protected:
+    string nombre;
+    float salario;
 
+public:
+    Empleado(string nombre, float salario);
+    virtual ~Empleado() = default;
 
-void Empleado::mostrarDatos() const {
-    cout << "Nombre: " << nombre << ", Salario: " << salario << endl;
-}
+    virtual void trabajar() const = 0; 
+    virtual void mostrarDatos() const;
+    float getSalario() const;
+    virtual void recibirMensaje(const string& mensaje) const = 0;
+    string getNombre() const;
+};
 
-float Empleado::getSalario() const {
-    return salario;
-}
+#endif
