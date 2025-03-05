@@ -1,24 +1,23 @@
-#include "Sucursal.hpp"
+#ifndef SUCURSAL_HPP
+#define SUCURSAL_HPP
 
+#include "Empleado.hpp"
 
-Sucursal::Sucursal(string nombre) : nombre(nombre), cantidadEmpleados(0) {}
+class Sucursal 
+{
+private:
+    string nombre;
+    Empleado* empleados[10];
+    int cantidadEmpleados;
 
+public:
+    Sucursal(string nombre);
+    ~Sucursal();
 
-Sucursal::~Sucursal() {}
+    void agregarEmpleado(Empleado* empleado);
+    void mostrarEmpleados() const;
+    void enviarMensaje(const std::string& mensaje) const;
+    string getNombre() const;
+};
 
-
-void Sucursal::agregarEmpleado(Empleado* empleado) {
-    if (cantidadEmpleados < 10) {
-        empleados[cantidadEmpleados++] = empleado;
-    } else {
-        cout << "No se pueden agregar más empleados a la sucursal " << nombre << "." << endl;
-    }
-}
-
-void Sucursal::mostrarEmpleados() const {
-    cout << "Sucursal: " << nombre << endl;
-    for (int i = 0; i < cantidadEmpleados; ++i) {
-        empleados[i]->mostrarDatos();
-        empleados[i]->trabajar();
-    }
-}
+#endif
