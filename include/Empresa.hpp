@@ -7,7 +7,8 @@
 
 using namespace std;
 
-class Empresa {
+class Empresa 
+{
 private:
     string nombre;
     Sucursal* sucursales[10];
