@@ -1,17 +1,19 @@
-#ifndef VENDEDOREMPRESA_HPP
-#define VENDEDOREMPRESA_HPP
+#include "VendedorEmpresa.hpp"
 
-#include "Empleado.hpp"
+VendedorEmpresa::VendedorEmpresa(string nombre, float salario) : Empleado(nombre, salario) {}
 
-class VendedorEmpresa : public Empleado 
+
+void VendedorEmpresa::trabajar() const 
 {
-public:
-    VendedorEmpresa(string nombre, float salario);
-    
-    void trabajar() const override;
-    void mostrarDatos() const override;
-    void recibirMensaje(const std::string& mensaje) const override;
+    cout << "Vendedor Empresa " << nombre << " esta trabajando." << endl;
+}
 
-};
-
-#endif
+void VendedorEmpresa::mostrarDatos() const 
+{
+    Empleado::mostrarDatos();
+    cout << "Categoría: Vendedor Empresa" << endl;
+}
+void VendedorEmpresa::recibirMensaje(const std::string& mensaje) const 
+{
+    cout << nombre << " ha recibido el mensaje: " << mensaje << std::endl;
+}
