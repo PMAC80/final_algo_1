@@ -3,9 +3,11 @@
 
 #include "Empleado.hpp"
 
-class VendedorProfesional : public Empleado {
+class VendedorProfesional : public Empleado 
+{
 public:
     VendedorProfesional(string nombre, float salario);
+    
     void trabajar() const override;
     void mostrarDatos() const override;
     void recibirMensaje(const std::string& mensaje) const override;
