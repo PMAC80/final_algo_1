@@ -3,7 +3,8 @@
 
 #include "Empleado.hpp"
 
-class Sucursal {
+class Sucursal 
+{
 private:
     string nombre;
     Empleado* empleados[10];
@@ -16,6 +17,7 @@ public:
     void agregarEmpleado(Empleado* empleado);
     void mostrarEmpleados() const;
     void enviarMensaje(const std::string& mensaje) const;
+    string getNombre() const;
 };
 
 #endif
